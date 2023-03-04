@@ -13,8 +13,8 @@
 	<div class="container">
 		<h1>체격 조건 입력</h1>
 		<div class="form-group d-flex align-items-end">
-			<input type="text" value="키를 입력하세요." class="form-control col-3 mr-2"> cm
-			<input type="text" value="몸무게를 입력하세요." class="form-control col-3 mr-2 ml-3"> kg
+			<input name="cm" type="text" value="키를 입력하세요." class="form-control col-3 mr-2"> cm
+			<input name="kg" type="text" value="몸무게를 입력하세요." class="form-control col-3 mr-2 ml-3"> kg
 			<button type="submit" class="btn btn-info ml-4">계산</button>
 		</div>
 	</div>

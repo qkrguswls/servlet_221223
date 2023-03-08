@@ -12,56 +12,73 @@
 </head>
 <body>
 	<%
-		List<Map<String, Object>> list = new ArrayList<>();
-	    Map<String, Object> map = new HashMap<String, Object>() {{ put("name", "버거킹"); put("menu", "햄버거"); put("point", 4.3); } };
-	    list.add(map);
-	    map = new HashMap<String, Object>() {{ put("name", "BBQ"); put("menu", "치킨"); put("point", 3.8); } };
-	    list.add(map);
-	    map = new HashMap<String, Object>() {{ put("name", "교촌치킨"); put("menu", "치킨"); put("point", 4.1); } };
-	    list.add(map);
-	    map = new HashMap<String, Object>() {{ put("name", "도미노피자"); put("menu", "피자"); put("point", 4.5); } };
-	    list.add(map);
-	    map = new HashMap<String, Object>() {{ put("name", "맥도날드"); put("menu", "햄버거"); put("point", 3.8); } };
-	    list.add(map);
-	    map = new HashMap<String, Object>() {{ put("name", "BHC"); put("menu", "치킨"); put("point", 4.2); } };
-	    list.add(map);
-	    map = new HashMap<String, Object>() {{ put("name", "반올림피자"); put("menu", "피자"); put("point", 4.3); } };
-	    list.add(map);
+    List<Map<String, Object>> list = new ArrayList<>();
+    Map<String, Object> map = new HashMap<String, Object>() {
+        { 
+            put("id", 1000);
+            put("title", "아몬드"); 
+            put("author", "손원평"); 
+            put("publisher", "창비");
+            put("image", "http://image.kyobobook.co.kr/images/book/xlarge/267/x9788936434267.jpg");
+        } 
+    };
+    list.add(map);
+
+    map = new HashMap<String, Object>() {
+        { 
+            put("id", 1001);
+            put("title", "사피엔스"); 
+            put("author", "유발 하라리"); 
+            put("publisher", "김영사");
+            put("image", "http://image.kyobobook.co.kr/images/book/xlarge/464/x9788934972464.jpg");
+        } 
+    };
+    list.add(map);
+
+    map = new HashMap<String, Object>() {
+        { 
+            put("id", 1002);
+            put("title", "코스모스"); 
+            put("author", "칼 세이건"); 
+            put("publisher", "사이언스북");
+            put("image", "http://image.kyobobook.co.kr/images/book/xlarge/892/x9788983711892.jpg");
+        } 
+    };
+    list.add(map);
+
+    map = new HashMap<String, Object>() {
+        { 
+            put("id", 1003);
+            put("title", "나미야 잡화점의 기적"); 
+            put("author", "히가시노 게이고"); 
+            put("publisher", "현대문학");
+            put("image", "http://image.kyobobook.co.kr/images/book/xlarge/194/x9788972756194.jpg");
+        } 
+    };
+    list.add(map);
 	%>
+	
 	<%
-		String write = request.getParameter("write");
-		String check = request.getParameter("check");
+		int id = Integer.valueOf(request.getParameter("id"));
+		Map<String, Object> target = new HashMap<>();
+		for (Map<String, Object> item : list) {
+			if ((Integer)item.get("id") == id) {
+				target = item;
+				break;
+			}
+		}
+	
 	%>
+	
 	<div class="container">
-		<h1 class="text-center">검색 결과</h1>
-		<table class="table text-center">
-			<thead>
-				<tr>
-					<th>메뉴</th>
-					<th>상호</th>
-					<th>별점</th>
-				</tr>
-			</thead>
-			<tbody>
-				<%
-					for (Map<String, Object> item : list) {
-						if (item.get("menu").equals(write)) {
-							// 4점이하, 체크가됐을때
-							if (check != null && (double)item.get("point") <= 4.0) {
-								continue;
-							}
-				%>
-				<tr>
-					<td><%= item.get("menu") %></td>
-					<td><%= item.get("name") %></td>
-					<td><%= item.get("point") %></td>
-				</tr>
-				<%
-						}
-					}
-				%>
-			</tbody>
-		</table>
+		<div class="d-flex">
+			<img src="<%= target.get("image") %>" alt="img" width="300">
+			<div>
+				<div class="display-1 font-weight-bold"><%= target.get("title") %></div>
+				<div class="display-3 text-info"><%= target.get("author") %></div>
+				<div class="display-4 text-primary"><%= target.get("publisher") %></div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

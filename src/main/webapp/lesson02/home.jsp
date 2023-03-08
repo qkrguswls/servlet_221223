@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -12,16 +13,22 @@
 </head>
 <body>
 	<div class="container">
-		<h1>메뉴 검색</h1>
-		<form method="get" action="/lesson02/home_1.jsp">
-			<div class="d-flex align-items-center">
-				<input type="text" name="write" class="form-control col-4 mr-2">
-				<label class="m-0"><input type="checkbox" name="check" class="mr-2">4점 이하 제외</label>
-			</div>
-			<button type="submit" class="btn btn-success mt-3">검색</button>
-		</form>
+		<h3 class="text-center">오늘부터 1일</h3>
+		<%
+			Calendar today = Calendar.getInstance();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일");
+			today.add(Calendar.DATE, -1);
+			for (int i = 100; i <= 1000; i += 100) {
+				today.add(Calendar.DATE, +100);
+		%>
+		<h2>
+			<span><%= i %>일 : </span>
+			<span class="text-danger"><%= sdf.format(today.getTime()) %></span>
+		</h2>
+		<%
+			}
+		%>
 	</div>
-	
 </body>
 </html>
 

@@ -15,7 +15,7 @@
 </style>
 </head>
 <body>
-	<div id="wrap" class="container bg-secondary">
+	<div id="wrap" class="container">
 		<header>
 			<h1 class="text-danger text-center">Sk Broadband IPTV</h1>
 			<nav class="bg-danger text-white">

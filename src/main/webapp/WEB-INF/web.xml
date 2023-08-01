@@ -35,8 +35,10 @@
 	
 	<servlet-mapping>
 		<servlet-name>UrlMappingQuiz02</servlet-name>
-		<url-pattern>/lesso1/quiz02</url-pattern>
+		<url-pattern>/lesson01/quiz02</url-pattern>
 	</servlet-mapping>
+	
+
 	
 	<!-- 한글 깨짐을 방지하기 위한 인코딩 필터 추가 -->
 	<!-- 위에서 한것과 같이 @WebFilter로 자바클래스에서 직접해줌 -->

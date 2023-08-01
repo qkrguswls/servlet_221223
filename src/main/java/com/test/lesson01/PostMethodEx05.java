@@ -15,7 +15,7 @@ public class PostMethodEx05 extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// 응답 헤더
 		response.setContentType("text/html");
-//		response.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		
 		PrintWriter out = response.getWriter();
 		
